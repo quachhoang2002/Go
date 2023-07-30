@@ -1,0 +1,62 @@
+version: "3.9"
+services:
+  mongo:
+    image: mongodb/mongodb-community-server:4.4.6-ubi8-20230719T063935Z 
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: mongo
+      MONGO_INITDB_ROOT_PASSWORD: mongo
+    healthcheck:
+      test: [ "CMD", "mongo", "--eval", "db.adminCommand('ping')" ]
+      interval: 10s
+      timeout: 10s
+      retries: 3
+    ports:
+      - "27117:27017"
+    volumes:
+      - ./data/mongodb:/data/db
+    networks:
+      - tanca-event-network
+  pg:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: tanca-event-pg
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U postgres" ]
+      interval: 10s
+      timeout: 10s
+      retries: 3
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./data/postgresql:/var/lib/postgresql/data
+    networks:
+      - tanca-event-network
+  migrate:
+    image: migrate/migrate:v4.15.2
+    profiles: [ "tools" ]
+    volumes:
+      - ./database/migrations:/migrations
+    entrypoint:
+      [
+        "migrate",
+        "-path",
+        "/migrations",
+        "-database",
+        "postgres://postgres:postgres@pg:5432/tanca-event-pg?sslmode=disable"
+      ]
+    command: [ "up" ]
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: on-failure
+    networks:
+      - tanca-event-network
+networks:
+  tanca-event-network:
+    driver: bridge
+volumes:
+  tanca-event-data:
