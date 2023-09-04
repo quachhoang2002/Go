@@ -4,10 +4,10 @@ import (
 	"context"
 	"database/sql"
 
+	"github.com/quachhoang2002/Go/internal/dbmodel"
+	"github.com/quachhoang2002/Go/internal/model"
+	"github.com/quachhoang2002/Go/internal/todo/repository"
 	"github.com/volatiletech/sqlboiler/v4/boil"
-	"gitlab.com/gma-vietnam/tanca-event/internal/dbmodel"
-	"gitlab.com/gma-vietnam/tanca-event/internal/model"
-	"gitlab.com/gma-vietnam/tanca-event/internal/todo/repository"
 )
 
 // Create creates a new todo

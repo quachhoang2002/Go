@@ -3,7 +3,7 @@ package mongo
 import (
 	"time"
 
-	"gitlab.com/gma-vietnam/tanca-event/internal/model"
+	"github.com/quachhoang2002/Go/internal/model"
 )
 
 type todoModel struct {

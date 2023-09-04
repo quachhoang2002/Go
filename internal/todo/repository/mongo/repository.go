@@ -4,8 +4,8 @@ import (
 	"context"
 	"time"
 
-	"gitlab.com/gma-vietnam/tanca-event/internal/model"
-	"gitlab.com/gma-vietnam/tanca-event/pkg/mongo"
+	"github.com/quachhoang2002/Go/internal/model"
+	"github.com/quachhoang2002/Go/pkg/mongo"
 )
 
 const (

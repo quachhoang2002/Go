@@ -3,9 +3,9 @@ package usecase
 import (
 	"context"
 
-	"gitlab.com/gma-vietnam/tanca-event/internal/model"
-	"gitlab.com/gma-vietnam/tanca-event/internal/todo/repository"
-	"gitlab.com/gma-vietnam/tanca-event/pkg/log"
+	"github.com/quachhoang2002/Go/internal/model"
+	"github.com/quachhoang2002/Go/internal/todo/repository"
+	"github.com/quachhoang2002/Go/pkg/log"
 )
 
 // Usecase is the interface for todo usecase

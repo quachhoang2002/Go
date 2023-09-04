@@ -1,8 +1,8 @@
 package http
 
 import (
-	todoUsecase "gitlab.com/gma-vietnam/tanca-event/internal/todo/usecase"
-	"gitlab.com/gma-vietnam/tanca-event/pkg/log"
+	todoUsecase "github.com/quachhoang2002/Go/internal/todo/usecase"
+	"github.com/quachhoang2002/Go/pkg/log"
 )
 
 type handler struct {

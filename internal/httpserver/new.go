@@ -3,8 +3,8 @@ package httpserver
 import (
 	"database/sql"
 
-	pkgLog "gitlab.com/gma-vietnam/tanca-event/pkg/log"
-	"gitlab.com/gma-vietnam/tanca-event/pkg/mongo"
+	pkgLog "github.com/quachhoang2002/Go/pkg/log"
+	"github.com/quachhoang2002/Go/pkg/mongo"
 
 	"github.com/gin-gonic/gin"
 )

@@ -16,7 +16,7 @@ type MongoConfig struct {
 }
 
 type PGConfig struct {
-	URL string `env:"PG_URL" envDefault:"postgres://postgres:postgres@localhost:5432/tanca-event-pg?sslmode=disable"`
+	URL string `env:"PG_URL" envDefault:"postgres://postgres:postgres@localhost:5432/postgres?sslmode=disable"`
 }
 
 type DatabaseConfig struct {

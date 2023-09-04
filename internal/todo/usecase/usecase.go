@@ -4,8 +4,8 @@ import (
 	"context"
 	"errors"
 
-	"gitlab.com/gma-vietnam/tanca-event/internal/model"
-	"gitlab.com/gma-vietnam/tanca-event/internal/todo/repository"
+	"github.com/quachhoang2002/Go/internal/model"
+	"github.com/quachhoang2002/Go/internal/todo/repository"
 )
 
 type CreateInput struct {

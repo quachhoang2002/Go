@@ -3,7 +3,7 @@ package repository
 import (
 	"context"
 
-	"gitlab.com/gma-vietnam/tanca-event/internal/model"
+	"github.com/quachhoang2002/Go/internal/model"
 )
 
 // Repository is the interface for todo repository

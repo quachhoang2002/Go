@@ -3,11 +3,11 @@ package main
 import (
 	"fmt"
 
-	"gitlab.com/gma-vietnam/tanca-event/config"
-	"gitlab.com/gma-vietnam/tanca-event/internal/appconfig/mongo"
-	"gitlab.com/gma-vietnam/tanca-event/internal/appconfig/pg"
-	"gitlab.com/gma-vietnam/tanca-event/internal/httpserver"
-	pkgLog "gitlab.com/gma-vietnam/tanca-event/pkg/log"
+	"github.com/quachhoang2002/Go/config"
+	"github.com/quachhoang2002/Go/internal/appconfig/mongo"
+	"github.com/quachhoang2002/Go/internal/appconfig/pg"
+	"github.com/quachhoang2002/Go/internal/httpserver"
+	pkgLog "github.com/quachhoang2002/Go/pkg/log"
 )
 
 func main() {

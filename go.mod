@@ -1,4 +1,4 @@
-module gitlab.com/gma-vietnam/tanca-event
+module github.com/quachhoang2002/Go  
 
 go 1.20
 

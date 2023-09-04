@@ -3,10 +3,10 @@ package http
 import (
 	"strings"
 
-	"gitlab.com/gma-vietnam/tanca-event/internal/model"
-	todoUseCase "gitlab.com/gma-vietnam/tanca-event/internal/todo/usecase"
-	pkgErrors "gitlab.com/gma-vietnam/tanca-event/pkg/errors"
-	"gitlab.com/gma-vietnam/tanca-event/pkg/response"
+	"github.com/quachhoang2002/Go/internal/model"
+	todoUseCase "github.com/quachhoang2002/Go/internal/todo/usecase"
+	pkgErrors "github.com/quachhoang2002/Go/pkg/errors"
+	"github.com/quachhoang2002/Go/pkg/response"
 )
 
 type addRequest struct {

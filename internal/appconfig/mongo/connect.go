@@ -6,7 +6,7 @@ import (
 	"log"
 	"time"
 
-	"gitlab.com/gma-vietnam/tanca-event/pkg/mongo"
+	"github.com/quachhoang2002/Go/pkg/mongo"
 )
 
 const (

@@ -7,8 +7,8 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"gitlab.com/gma-vietnam/tanca-event/internal/todo/usecase"
-	"gitlab.com/gma-vietnam/tanca-event/pkg/log"
+	"github.com/quachhoang2002/Go/internal/todo/usecase"
+	"github.com/quachhoang2002/Go/pkg/log"
 
 	"github.com/gin-gonic/gin"
 	"github.com/stretchr/testify/require"

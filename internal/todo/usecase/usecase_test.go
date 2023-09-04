@@ -5,10 +5,10 @@ import (
 	"errors"
 	"testing"
 
+	"github.com/quachhoang2002/Go/internal/model"
+	"github.com/quachhoang2002/Go/internal/todo/repository"
+	"github.com/quachhoang2002/Go/pkg/log"
 	"github.com/stretchr/testify/require"
-	"gitlab.com/gma-vietnam/tanca-event/internal/model"
-	"gitlab.com/gma-vietnam/tanca-event/internal/todo/repository"
-	"gitlab.com/gma-vietnam/tanca-event/pkg/log"
 )
 
 type mockDeps struct {

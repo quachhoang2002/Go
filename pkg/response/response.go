@@ -1,7 +1,7 @@
 package response
 
 import (
-	pkgErrors "gitlab.com/gma-vietnam/tanca-event/pkg/errors"
+	pkgErrors "github.com/quachhoang2002/Go/pkg/errors"
 
 	"github.com/gin-gonic/gin"
 )

@@ -1,9 +1,9 @@
 package mongo
 
 import (
-	"gitlab.com/gma-vietnam/tanca-event/internal/todo/repository"
-	"gitlab.com/gma-vietnam/tanca-event/pkg/log"
-	"gitlab.com/gma-vietnam/tanca-event/pkg/mongo"
+	"github.com/quachhoang2002/Go/internal/todo/repository"
+	"github.com/quachhoang2002/Go/pkg/log"
+	"github.com/quachhoang2002/Go/pkg/mongo"
 )
 
 type implRepository struct {

@@ -3,8 +3,8 @@ package pg
 import (
 	"database/sql"
 
-	"gitlab.com/gma-vietnam/tanca-event/internal/todo/repository"
-	"gitlab.com/gma-vietnam/tanca-event/pkg/log"
+	"github.com/quachhoang2002/Go/internal/todo/repository"
+	"github.com/quachhoang2002/Go/pkg/log"
 )
 
 type implRepository struct {

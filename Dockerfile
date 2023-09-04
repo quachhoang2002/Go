@@ -31,3 +31,4 @@ WORKDIR /
 COPY --from=builder /api /api
 
 ENTRYPOINT ["./api"]
+ 

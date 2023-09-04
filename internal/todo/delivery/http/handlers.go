@@ -5,7 +5,7 @@ import (
 	"strings"
 
 	"github.com/gin-gonic/gin"
-	"gitlab.com/gma-vietnam/tanca-event/pkg/response"
+	"github.com/quachhoang2002/Go/pkg/response"
 )
 
 func (h handler) add(c *gin.Context) {

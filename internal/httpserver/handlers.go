@@ -1,11 +1,11 @@
 package httpserver
 
 import (
-	todoHTTP "gitlab.com/gma-vietnam/tanca-event/internal/todo/delivery/http"
-	todoRepository "gitlab.com/gma-vietnam/tanca-event/internal/todo/repository"
-	todoMongo "gitlab.com/gma-vietnam/tanca-event/internal/todo/repository/mongo"
-	todoPG "gitlab.com/gma-vietnam/tanca-event/internal/todo/repository/pg"
-	todoUsecase "gitlab.com/gma-vietnam/tanca-event/internal/todo/usecase"
+	todoHTTP "github.com/quachhoang2002/Go/internal/todo/delivery/http"
+	todoRepository "github.com/quachhoang2002/Go/internal/todo/repository"
+	todoMongo "github.com/quachhoang2002/Go/internal/todo/repository/mongo"
+	todoPG "github.com/quachhoang2002/Go/internal/todo/repository/pg"
+	todoUsecase "github.com/quachhoang2002/Go/internal/todo/usecase"
 )
 
 func (srv HTTPServer) mapHandlers() {
