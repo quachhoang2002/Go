@@ -7,7 +7,7 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/quachhoang2002/Go/internal/todo/usecase"
+	"github.com/quachhoang2002/Go/internal/account/usecase"
 	"github.com/quachhoang2002/Go/pkg/log"
 
 	"github.com/gin-gonic/gin"
@@ -48,8 +48,9 @@ func TestDeliveryHTTPTodo_add(t *testing.T) {
 			mockUsecase: mockUsecase{
 				expCall: true,
 				input: usecase.CreateInput{
-					Name:        "test",
-					Description: "test",
+					Owner:    "test",
+					Balance:  100,
+					Currency: "VND",
 				},
 			},
 			wantBody: `{
@@ -96,8 +97,8 @@ func TestDeliveryHTTPTodo_add(t *testing.T) {
 			mockUsecase: mockUsecase{
 				expCall: true,
 				input: usecase.CreateInput{
-					Name:        "test",
-					Description: "test",
+					Owner:   "test",
+					Balance: 100,
 				},
 				err: errors.New("Internal error"),
 			},

@@ -1,6 +1,7 @@
 package http
 
 import (
+	"fmt"
 	"strconv"
 	"strings"
 
@@ -16,14 +17,16 @@ func (h handler) add(c *gin.Context) {
 		return
 	}
 
+	fmt.Println(req)
+
 	input, err := req.toInput()
 	if err != nil {
 		response.Error(c, err)
 		return
 	}
 
-	if err := h.todoUC.Create(ctx, input); err != nil {
-		h.l.Error(ctx, "todo.handler.add.todoUC.Create: %s", err)
+	if err := h.accountUC.Create(ctx, input); err != nil {
+		h.l.Errorf(ctx, "account.handler.add.accountUC.Create(ctx, %+v): %s", input, err)
 		response.ErrorWithMap(c, err, errMap)
 		return
 	}
@@ -34,7 +37,7 @@ func (h handler) add(c *gin.Context) {
 func (h handler) list(c *gin.Context) {
 	ctx := c.Request.Context()
 
-	todos, err := h.todoUC.All(ctx)
+	todos, err := h.accountUC.All(ctx)
 	if err != nil {
 		h.l.Error(ctx, "todo.handler.list.todoUC.All: %s", err)
 		response.ErrorWithMap(c, err, errMap)
@@ -60,7 +63,7 @@ func (h handler) delete(c *gin.Context) {
 		return
 	}
 
-	if err := h.todoUC.Delete(ctx, id); err != nil {
+	if err := h.accountUC.Delete(ctx, id); err != nil {
 		h.l.Errorf(ctx, "todo.handler.delete.todoUC.Delete(ctx, %d): %s", id, err)
 		response.ErrorWithMap(c, err, errMap)
 		return

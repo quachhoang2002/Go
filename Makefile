@@ -28,10 +28,16 @@ migrate-delete-force:
 # pg-redo:
 # 	docker compose --profile tools run --rm migrate down
 
+proto:
+	protoc --proto_path=proto  --go_out=pb  --go_opt=paths=source_relative \
+    --go-grpc_out=pb --go-grpc_opt=paths=source_relative \
+    proto/*.proto
+
 ## Generate db models
 gen-models:
 	sqlc generate
-#sqlboiler psql
-
+	
 test:
 	go test -mod=vendor -coverprofile=c.out -failfast -timeout 5m ./...
+
+.PHONY: run migrate-up migrate-down migrate-drop migrate-down-all migrate-delete-force gen-models test proto

@@ -4,24 +4,25 @@ import (
 	"context"
 	"errors"
 
-	"github.com/quachhoang2002/Go/internal/model"
-	"github.com/quachhoang2002/Go/internal/todo/repository"
+	"github.com/quachhoang2002/Go/internal/account/repository"
+	"github.com/quachhoang2002/Go/internal/domain"
 )
 
 type CreateInput struct {
-	Name        string
-	Description string
+	Owner    string
+	Balance  int32
+	Currency string
 }
 
 // Create creates a new todo
 func (uc implUsecase) Create(ctx context.Context, input CreateInput) error {
-	m := model.Todo{
-		Name:        input.Name,
-		Description: input.Description,
+	account := domain.Account{
+		Owner:    input.Owner,
+		Balance:  input.Balance,
+		Currency: input.Currency,
 	}
 
-	if err := uc.repo.Create(ctx, m); err != nil {
-		uc.l.Errorf(ctx, "todo.usecase.Create.repo.Create(ctx, %+v): %s", m, err)
+	if err := uc.repo.Create(ctx, account); err != nil {
 		return err
 	}
 
@@ -29,7 +30,7 @@ func (uc implUsecase) Create(ctx context.Context, input CreateInput) error {
 }
 
 // All returns all todos
-func (uc implUsecase) All(ctx context.Context) ([]model.Todo, error) {
+func (uc implUsecase) All(ctx context.Context) ([]domain.Account, error) {
 	todos, err := uc.repo.All(ctx)
 	if err != nil {
 		uc.l.Errorf(ctx, "todo.usecase.All.repo.All(ctx): %s", err)

@@ -8,12 +8,30 @@ import (
 
 // Create creates a new todo
 func (repo implRepository) Create(ctx context.Context, account domain.Account) error {
-	panic("not implemented")
+	createParams := domain.CreateAccountParams{
+		Owner:    account.Owner,
+		Balance:  account.Balance,
+		Currency: account.Currency,
+	}
+
+	queries := domain.New(repo.db)
+	_, err := queries.CreateAccount(ctx, createParams)
+	if err != nil {
+		return err
+	}
+
+	return nil
 }
 
 // All returns all todos
 func (repo implRepository) All(ctx context.Context) ([]domain.Account, error) {
-	panic("not implemented")
+	queries := domain.New(repo.db)
+	accounts, err := queries.GetListAccount(ctx)
+	if err != nil {
+		return nil, err
+	}
+
+	return accounts, nil
 }
 
 // Delete deletes a todo

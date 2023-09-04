@@ -1,4 +1,4 @@
--- name: GetAccount :one
+-- name: GetListAccount :many
 SELECT
     *
 FROM

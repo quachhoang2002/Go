@@ -17,5 +17,5 @@ var (
 )
 
 const (
-	errMsgNameIsRequired = "name is required"
+	errMsgNameIsRequired = "owner is required"
 )

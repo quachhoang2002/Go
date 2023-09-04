@@ -12,6 +12,8 @@ type implRepository struct {
 	db *sql.DB
 }
 
+var _ repository.Repository = implRepository{}
+
 func NewRepository(l log.Logger, db *sql.DB) repository.Repository {
 	return &implRepository{
 		l:  l,

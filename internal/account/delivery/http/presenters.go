@@ -3,49 +3,51 @@ package http
 import (
 	"strings"
 
-	"github.com/quachhoang2002/Go/internal/model"
-	todoUseCase "github.com/quachhoang2002/Go/internal/todo/usecase"
+	accountUseCase "github.com/quachhoang2002/Go/internal/account/usecase"
+	"github.com/quachhoang2002/Go/internal/domain"
 	pkgErrors "github.com/quachhoang2002/Go/pkg/errors"
-	"github.com/quachhoang2002/Go/pkg/response"
 )
 
 type addRequest struct {
-	Name        string `json:"name"`
-	Description string `json:"description"`
+	Owner    string `json:"owner"`
+	Balance  int32  `json:"balance"`
+	Currency string `json:"currency"`
 }
 
-func (r addRequest) toInput() (todoUseCase.CreateInput, error) {
+func (r addRequest) toInput() (accountUseCase.CreateInput, error) {
 	vErrCollect := pkgErrors.NewValidationErrorCollector()
 
-	if strings.TrimSpace(r.Name) == "" {
-		vErrCollect.Add(pkgErrors.NewValidationError("name", errMsgNameIsRequired))
+	if strings.TrimSpace(r.Owner) == "" {
+		vErrCollect.Add(pkgErrors.NewValidationError("Onwer", errMsgNameIsRequired))
 	}
 
 	if vErrCollect.HasError() {
-		return todoUseCase.CreateInput{}, vErrCollect
+		return accountUseCase.CreateInput{}, vErrCollect
 	}
 
-	return todoUseCase.CreateInput{
-		Name:        r.Name,
-		Description: r.Description,
+	return accountUseCase.CreateInput{
+		Owner:    r.Owner,
+		Balance:  r.Balance,
+		Currency: r.Currency,
 	}, nil
 }
 
-type todoResponse struct {
-	ID          int               `json:"id"`
-	Name        string            `json:"name"`
-	Description string            `json:"description"`
-	CreatedAt   response.DateTime `json:"created_at"`
+type accountReponse struct {
+	ID        int64  `json:"id"`
+	Owner     string `json:"owner"`
+	Balance   int32  `json:"balance"`
+	Currency  string `json:"currency"`
+	CreatedAt string `json:"created_at"`
 }
 
-func newListResponse(todos []model.Todo) []todoResponse {
-	data := []todoResponse{}
-	for _, todo := range todos {
-		data = append(data, todoResponse{
-			ID:          todo.ID,
-			Name:        todo.Name,
-			Description: todo.Description,
-			CreatedAt:   response.DateTime(todo.CreatedAt),
+func newListResponse(accounts []domain.Account) []accountReponse {
+	data := []accountReponse{}
+	for _, account := range accounts {
+		data = append(data, accountReponse{
+			ID:       account.ID,
+			Owner:    account.Owner,
+			Balance:  account.Balance,
+			Currency: account.Currency,
 		})
 	}
 

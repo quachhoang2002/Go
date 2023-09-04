@@ -36,23 +36,39 @@ func (q *Queries) CreateAccount(ctx context.Context, arg CreateAccountParams) (A
 	return i, err
 }
 
-const getAccount = `-- name: GetAccount :one
+const getListAccount = `-- name: GetListAccount :many
 SELECT
     id, owner, balance, currency, created_at, updated_at
 FROM
     accounts
 `
 
-func (q *Queries) GetAccount(ctx context.Context) (Account, error) {
-	row := q.db.QueryRowContext(ctx, getAccount)
-	var i Account
-	err := row.Scan(
-		&i.ID,
-		&i.Owner,
-		&i.Balance,
-		&i.Currency,
-		&i.CreatedAt,
-		&i.UpdatedAt,
-	)
-	return i, err
+func (q *Queries) GetListAccount(ctx context.Context) ([]Account, error) {
+	rows, err := q.db.QueryContext(ctx, getListAccount)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	var items []Account
+	for rows.Next() {
+		var i Account
+		if err := rows.Scan(
+			&i.ID,
+			&i.Owner,
+			&i.Balance,
+			&i.Currency,
+			&i.CreatedAt,
+			&i.UpdatedAt,
+		); err != nil {
+			return nil, err
+		}
+		items = append(items, i)
+	}
+	if err := rows.Close(); err != nil {
+		return nil, err
+	}
+	if err := rows.Err(); err != nil {
+		return nil, err
+	}
+	return items, nil
 }

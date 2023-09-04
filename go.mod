@@ -1,4 +1,4 @@
-module github.com/quachhoang2002/Go  
+module github.com/quachhoang2002/Go
 
 go 1.20
 
@@ -6,13 +6,17 @@ require (
 	github.com/caarlos0/env/v6 v6.10.1
 	github.com/friendsofgo/errors v0.9.2
 	github.com/gin-gonic/gin v1.9.1
+	github.com/golang/protobuf v1.5.2
 	github.com/lib/pq v1.10.6
 	github.com/stretchr/testify v1.8.4
+	github.com/techschool/simplebank v0.0.0-20230723192022-25db9f90085c
 	github.com/volatiletech/null/v8 v8.1.2
 	github.com/volatiletech/sqlboiler/v4 v4.14.2
 	github.com/volatiletech/strmangle v0.0.5
 	go.mongodb.org/mongo-driver v1.12.0
 	go.uber.org/zap v1.24.0
+	google.golang.org/grpc v1.46.2
+	google.golang.org/protobuf v1.30.0
 )
 
 require (
@@ -27,6 +31,7 @@ require (
 	github.com/goccy/go-json v0.10.2 // indirect
 	github.com/gofrs/uuid v4.2.0+incompatible // indirect
 	github.com/golang/snappy v0.0.3 // indirect
+	github.com/grpc-ecosystem/grpc-gateway/v2 v2.10.0 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
 	github.com/klauspost/compress v1.13.6 // indirect
 	github.com/klauspost/cpuid/v2 v2.2.4 // indirect
@@ -52,10 +57,10 @@ require (
 	golang.org/x/arch v0.3.0 // indirect
 	golang.org/x/crypto v0.9.0 // indirect
 	golang.org/x/net v0.10.0 // indirect
-	golang.org/x/sync v0.0.0-20220722155255-886fb9371eb4 // indirect
+	golang.org/x/sync v0.1.0 // indirect
 	golang.org/x/sys v0.8.0 // indirect
 	golang.org/x/text v0.9.0 // indirect
 	golang.org/x/xerrors v0.0.0-20220609144429-65e65417b02f // indirect
-	google.golang.org/protobuf v1.30.0 // indirect
+	google.golang.org/genproto v0.0.0-20220519153652-3a47de7e79bd // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )

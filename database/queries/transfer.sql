@@ -1,4 +1,4 @@
--- name: GetListTransfer :one
+-- name: GetListTransfer :many
 SELECT
     *
 FROM
