@@ -1,4 +1,4 @@
-# TANCA EVENT
+# My Go Project
 ## 1. Tools
 #### SQLBoiler
 - **Used:** for generating database models and queries for the database
